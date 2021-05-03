@@ -65,6 +65,21 @@ li {
 
 .headerMenu {
     margin: 50px 75px 50px 50px;
+    align-self: center;
+}
+
+.headerContainer {
+    display: flex;
+}
+
+#login {
+    margin: 20px;
+    align-self: center;
+}
+
+#logo {
+    margin: 50px;
+    align-self: center;
 }
 
 .headerMenu ul {
@@ -125,6 +140,10 @@ li {
     margin-top: 0;
 }
 
+.btnSearch i {
+    display: none;
+}
+
 .form {
     display: flex;
     align-items: stretch;
@@ -138,7 +157,7 @@ li {
 }
 
 
-.form #siteSearch::placeholder{
+.form #siteSearch::placeholder, input{
     font-weight: bold;
     color: var(--black);
     font-size: 16px;
@@ -177,7 +196,6 @@ li {
     color: var(--white);
 }
 
-
 #searchSection .fa-map-marker-alt {
     background-color: var(--background-color);
     padding: 7px 10px 11px 10px;
@@ -191,6 +209,10 @@ li {
     display: flex;
     margin-top: 35px;
     margin-bottom: 40px;
+}
+
+.filterTitle {
+    display: flex;
 }
 
 .filters span {
@@ -459,7 +481,47 @@ footer {
 }
 
 
+@media all and (device-width: 768px) and (max-device-width: 1024px){
 
+    .filters {
+        display: inline;
+        margin: 20px;
+    }
+
+    .filters ul {
+        flex-wrap: wrap;
+        margin: 0;
+    }
+
+    #accomodations {
+        grid-template-columns: 1fr;
+    }
+
+    /* .popular .cardContent {
+        height: auto;
+        display: inline-block;
+    } */
+    .popular .cardText {
+        padding: 10px;
+    }
+
+    .activitiesContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .activity {
+        width: 100%;
+    }
+
+    .footerMenuContent{
+        width: 25%;
+    }
+    .footerMenuContent:last-child{
+        width: 0;
+        display: none;
+        
+    }
+}
 
 
 
@@ -467,24 +529,120 @@ footer {
 {
     /* Vos règles CSS pour les mobiles ici */
 
+    .headerContainer {
+        display: inline;
+        margin-bottom: 50px;
+    }
 
     .headerMenu {
+        margin:0;
+    }
+
+    .headerMenu li {
+        width: 100%;
+    }
+
+    .headerMenu li a {
+        padding: 20px 50px ;
+        border-bottom: 3px solid var(--background-color);
+    }
+
+
+    .headerMenu li a:hover, .headerMenu li a:focus, .headerMenu li a:active  {  
+        color: var(--main-color); 
+        border-top: none;
+        border-bottom: 3px solid var(--main-color);
+    }
+
+    #logo {
+        margin:20px;   
+    }
+
+    #login {
+        margin: 0;
+        position: absolute;
+        top: 35px;
+        right: 20px; 
+    }
+ 
+    .filters {
+        display: inline-block;
+        width: 100%;
+    }
+    .filters ul {
+        display: inline-block;
         margin: 0;
     }
 
-    .filters ul {
-        display: inline-block;
+    .filters li {
+        display: inline;
+    } 
+
+    .filterBtn {
+        margin-left: 0;
     }
 
+    .filterBtn span {
+        padding: 10px 20px 10px 10px;
+    }
+    #searchSection  {
+        margin-top: 40px;
+    }
+
+
+    .btnSearch {
+        border-radius: 20%;
+        padding: 20px;
+        margin-left: -10px;
+    }
+
+    #searchSection .fa-map-marker-alt {
+        padding: 20px;
+    }
+    .btnSearch i {
+        display: inline;
+    }
+    .btnSearch span {
+        display: none;
+    }
+
+    #searchSection, .info{
+        padding: 20px;
+    }
+
+    #searchSection p {
+        margin-bottom: 35px;
+    }
+
+    .filters {
+        padding: 0 20px;
+        margin: 15px 0 0 0;
+    }
+    .filters span {
+        justify-content: space-between;
+    }
+
+
+    .info p {
+        display: inline;
+    }
+
+    .info .fa-info {
+        margin-right: 15px;
+    }
     .container {
         padding: 0;
     }
 
     .sectionOne {
-        display: inline;
+        flex-direction: column-reverse;
+        padding: 0;
+        margin-bottom: 0;
     }
     #accomodationsContainer{
         width: 100%;
+        background-color: var(--white);
+        padding: 40px 20px 0 20px;
     }
 
     #accomodations {
@@ -493,10 +651,11 @@ footer {
 
     #mostPopular{
         width: 100%;
-        padding: 0;
+        padding: 20px;
         margin: 0;
     }
 
+   
     .activitiesContainer {
         padding: 0;
         margin: 0;
@@ -504,6 +663,10 @@ footer {
     }
     .activityContent .card { 
         margin: 20px 0;
+    }
+
+    #activities  {
+        padding: 20px 20px 0 20px ;
     }
 
     .activity .cardImg img      { height: 135px;}
@@ -515,7 +678,7 @@ footer {
 
     .activity {
         width: 100%;
-        padding: 0;
+        padding: 0 20px;
         margin: 0; 
     }
 

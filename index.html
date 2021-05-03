@@ -16,14 +16,20 @@
     <body>
         <!-- Header -->
         <header>
-            <nav class="headerMenu">
-                <ul>
-                    <li id="logo"> <a href="/"><img src="images/Reservia.svg" alt="logo Reservia"></a></li>
-                    <li class="btn-1"><a href="#accomodations"> Hébergements</a></li>
-                    <li><a href="#activities"> Activités </a></li>
-                    <li id="login"><a href="#login">S'inscrire</a></li>
-                </ul>
-            </nav>
+            <div class="headerContainer">
+                <div id="logo">
+                    <a href="/"><img src="images/Reservia.svg" alt="logo Reservia"></a>
+                </div>
+                <nav class="headerMenu">
+                    <ul>
+                        <li class="btn-1"><a href="#accomodations"> Hébergements</a></li>
+                        <li><a href="#activities"> Activités </a></li>
+                    </ul>
+                </nav>
+                <div id="login">
+                    <a href="#login">S'inscrire</a>
+                </div>
+            </div>
         </header>
         
         <div class="container">
@@ -38,13 +44,13 @@
                     <input type="search" id="siteSearch"
                         placeholder="Marseille, France">
                     
-                    <button type="submit" class="btnSearch">Rechercher</button>
+                    <button type="submit" class="btnSearch"><i class="fas fa-search"></i> <span>Rechercher</span></button>
                 </form>
 
             </section>
 
             <section class="filters">
-               <span>Filtres</span>
+               <div class="filterTitle"><span>Filtres</span></div>
                 <ul>
                     <li><button class="filterBtn"> <i class="fas fa-money-bill-wave"> </i>  <span>Économique</span></button></li>
                     <li><button class="filterBtn"> <i class="fas fa-child"> </i> <span>Familial</span></button></li>
@@ -60,6 +66,7 @@
 
             <!-- Section 2 Accomodations -->
             <div class="sectionOne">
+                
                 <section id="accomodationsContainer">
                     <div>
                         <h2>Hébergements à Marseille</h2>
