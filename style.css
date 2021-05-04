@@ -189,6 +189,11 @@ li {
     margin: 0;
 }
 
+#siteSearch {
+        margin: 0;
+        border-radius: 0;
+}
+
 
 .form #siteSearch::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: var(--black);
