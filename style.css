@@ -64,7 +64,7 @@ li {
 
 
 .headerMenu {
-    margin: 50px 75px 50px 50px;
+    margin: 50px 0 50px 50px;
     align-self: center;
 }
 
@@ -73,7 +73,8 @@ li {
 }
 
 #login {
-    margin: 20px;
+    margin-right: 50px;
+    margin-left: 20px;
     align-self: center;
 }
 
@@ -140,8 +141,30 @@ li {
     margin-top: 0;
 }
 
+.btnSearch {
+
+
+}
+
+.btnSearch:hover i{
+    /* display: inline-flex;
+    padding-left: 10px;
+    color: var(--main-color-lighter);
+    transition: all .5s ease-out;
+     */
+   
+}
+
+.btnSearch:hover span {
+
+}
+
+
+
 .btnSearch i {
     display: none;
+    transition: all .5s ease-out;
+
 }
 
 .form {
@@ -194,8 +217,17 @@ li {
     border-bottom-right-radius: 10px;
     padding: 10px;
     color: var(--white);
+
+    transition: all .5s ease-out;
 }
 
+.btnSearch:hover, .btnSearch:focus, .btnSearch:active{
+    background-color: var(--main-color-lighter);
+    color: var(--black);
+    transition: all .5s ease-out;
+
+
+}
 #searchSection .fa-map-marker-alt {
     background-color: var(--background-color);
     padding: 7px 10px 11px 10px;
@@ -329,6 +361,7 @@ li {
 
 .mostPopularTitleContainer .fa-chart-line {
     font-size: 20px;
+    line-height: 30px;
 }
 
 
@@ -493,14 +526,18 @@ footer {
         margin: 0;
     }
 
+    .container {
+        padding: 0 20px;
+    }
     #accomodations {
         grid-template-columns: 1fr;
     }
 
-    /* .popular .cardContent {
+     .popular .cardContent {
         height: auto;
         display: inline-block;
-    } */
+    } 
+
     .popular .cardText {
         padding: 10px;
     }
@@ -547,7 +584,6 @@ footer {
         border-bottom: 3px solid var(--background-color);
     }
 
-
     .headerMenu li a:hover, .headerMenu li a:focus, .headerMenu li a:active  {  
         color: var(--main-color); 
         border-top: none;
@@ -565,6 +601,11 @@ footer {
         right: 20px; 
     }
  
+    .popular .cardText {
+        padding: 20px 20px 15px 20px;
+        font-size: 15px;
+    }
+
     .filters {
         display: inline-block;
         width: 100%;
@@ -588,7 +629,6 @@ footer {
     #searchSection  {
         margin-top: 40px;
     }
-
 
     .btnSearch {
         border-radius: 20%;
@@ -614,6 +654,9 @@ footer {
         margin-bottom: 35px;
     }
 
+    .filterTitle{
+        margin-bottom: 15px;
+    }
     .filters {
         padding: 0 20px;
         margin: 15px 0 0 0;
@@ -622,14 +665,14 @@ footer {
         justify-content: space-between;
     }
 
-
     .info p {
         display: inline;
     }
 
     .info .fa-info {
-        margin-right: 15px;
+        margin-right: 10px;
     }
+
     .container {
         padding: 0;
     }
@@ -639,6 +682,7 @@ footer {
         padding: 0;
         margin-bottom: 0;
     }
+
     #accomodationsContainer{
         width: 100%;
         background-color: var(--white);
