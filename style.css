@@ -531,7 +531,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .mostPopular {
+    #mostPopular {
         height: 50%;
     }
      .popular .cardContent {
