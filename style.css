@@ -1,6 +1,24 @@
 /* GLOBAL */
+
+:root {
+    --main-color: #0065FC;
+    --main-color-lighter: #DEEBFF;
+    --background-color: #f2f2f2;
+    --border-color : #d9d9d9;
+    --black: black;
+    --white: white;
+    --font: 'Raleway', sans-serif;
+}
+
 * {
     box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -18,6 +36,11 @@ ul {
     list-style: none;
 }
 
+
+li {
+    list-style-type: none;
+}
+
 button {
     cursor: pointer;
     margin: 0;
@@ -29,24 +52,6 @@ a, button {
     outline: none;
 }
 
-body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    font-family: 'Raleway', sans-serif;
-}
-
-:root {
-    --main-color: #0065FC;
-    --main-color-lighter: #DEEBFF;
-    --background-color: #f2f2f2;
-    --border-color : #d9d9d9;
-    --black: black;
-    --white: white;
-    --font: 'Raleway', sans-serif;
-}
-
-
 a {
     text-decoration: none;
     color: var(--black);
@@ -55,13 +60,10 @@ a {
 a:hover, a:focus, a:active {
     color: var(--main-color);
 }
-li {
-    list-style-type: none;
-}
+
 
 
 /* HEADER */
-
 
 .headerMenu {
     margin: 50px 0 50px 50px;
@@ -76,6 +78,12 @@ li {
     margin-right: 50px;
     margin-left: 20px;
     align-self: center;
+}
+
+#login a {
+    padding-top: 62px;
+    padding: 62px 20px 20px 20px;
+    transition: .2s all ease;
 }
 
 #logo {
@@ -99,12 +107,17 @@ li {
 .headerMenu li a:hover, .headerMenu li a:focus, .headerMenu li a:active  {  
     color: var(--main-color); 
     border-top: 3px solid var(--main-color);
-    /*background-color: #DEEBFF;
+}
+
+.headerMenu li a:focus, #login a:focus {
+    color: var(--main-color); 
+    border-top: 3px solid var(--main-color);
+    padding-bottom: 20px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 5px 5px 5px 2px #F2F2F2;
-    transition: .2s all ease;    */
-}
+    transition: .2s all ease;    
+} 
 
 #logo {    
     flex: 1;    
@@ -133,6 +146,7 @@ li {
 
 
 /* SEARCH SECTION */
+
 #searchSection h1 {
     margin-bottom: 20px;
 }
@@ -141,30 +155,9 @@ li {
     margin-top: 0;
 }
 
-.btnSearch {
-
-
-}
-
-.btnSearch:hover i{
-    /* display: inline-flex;
-    padding-left: 10px;
-    color: var(--main-color-lighter);
-    transition: all .5s ease-out;
-     */
-   
-}
-
-.btnSearch:hover span {
-
-}
-
-
-
 .btnSearch i {
     display: none;
     transition: all .5s ease-out;
-
 }
 
 .form {
@@ -189,52 +182,45 @@ li {
     margin: 0;
 }
 
+
 #siteSearch {
-        margin: 0;
-        border-radius: 0;
+    margin: 0;
+    border-radius: 0;
 }
 
-
-.form #siteSearch::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: var(--black);
-}
-.form #siteSearch::-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: var(--black);
-   opacity:  1;
-}
-.form #siteSearch::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: var(--black);
-   opacity:  1;
-}
-.form #siteSearch::-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: var(--black);
-}
-.form #siteSearch::-ms-input-placeholder { /* Microsoft Edge */
-    color: var(--black);
-}
-
-.form #siteSearch::placeholder { /* Most modern browsers support this now. */
-    color: var(--black);
-}
+.form #siteSearch::-webkit-input-placeholder { /* WebKit, Blink, Edge */ color: var(--black); }
+.form #siteSearch::-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color: var(--black); opacity:  1; }
+.form #siteSearch::-moz-placeholder { /* Mozilla Firefox 19+ */ color: var(--black); opacity:  1; }
+.form #siteSearch::-ms-input-placeholder { /* Internet Explorer 10-11 */ color: var(--black); }
+.form #siteSearch::-ms-input-placeholder { /* Microsoft Edge */ color: var(--black);}
+.form #siteSearch::placeholder { /* Most modern browsers support this now. */ color: var(--black); }
 
 .btnSearch {
     background-color: var(--main-color); 
-    border: none;
+    border: 1px solid var(--main-color);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 10px;
     color: var(--white);
+    transition: all .5s ease-out;    
+}
 
+.btnSearch:hover, .btnSearch:active{
+    background-color: var(--main-color-lighter);
+    border: 1px solid var(--main-color-lighter);
+    color: var(--black);
     transition: all .5s ease-out;
 }
 
-.btnSearch:hover, .btnSearch:focus, .btnSearch:active{
+.btnSearch:focus {
+    border-top: 1px solid var(--main-color);
+    border-right: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
     background-color: var(--main-color-lighter);
     color: var(--black);
     transition: all .5s ease-out;
-
-
 }
+
 #searchSection .fa-map-marker-alt {
     background-color: var(--background-color);
     padding: 7px 10px 11px 10px;
@@ -279,6 +265,11 @@ li {
 .filterBtn:hover, .filterBtn:focus, .filterBtn:active { 
     background-position: left bottom;
     border-color: var(--main-color-lighter);
+}
+
+.filterBtn:focus {
+    border-color: var(--main-color);
+    transition: all .5s ease-out;
 }
 
 .filterBtn span {
@@ -340,7 +331,6 @@ li {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
 }
-
 
 .more p {
     font-weight: bold;
@@ -410,6 +400,9 @@ li {
     box-shadow: 0 0 10px 3px #a8a8a8;
     transition: .2s all ease;
 }
+
+
+
 .cardText {
     padding: 10px 15px;
 }
@@ -443,16 +436,12 @@ li {
 }
 
 
-
-
 /* ACTIVITIES */
 
 .activitiesContainer {
     padding-top: 30px;
     padding-bottom: 50px;
-    display: flex;
-    
-    
+    display: flex;    
 }
 
 .activity {
@@ -461,10 +450,8 @@ li {
 
 .activity .card {
     border: none;
-    margin: 0 20px;
-    
+    margin: 0 20px;    
 }
-
 
 .activity .cardText{
     padding: 22px;
@@ -491,7 +478,6 @@ li {
 .activityContent .card {
     margin-bottom: 40px;
 }
-
 
 /* FOOTER */
 
@@ -520,6 +506,7 @@ footer {
     margin-bottom: 10px;
 }
 
+/***************************** SMALLER SCREENS / IPADS  *****************************/
 
 @media all and (max-width: 1024px){
     
@@ -569,11 +556,10 @@ footer {
 }
 
 
+/***************************** MOBILE ****************************/
 
 @media all and (max-device-width: 480px)
 {
-    /* règles CSS pour les mobiles ici */
-
     .headerContainer {
         display: inline;
         margin-bottom: 50px;
