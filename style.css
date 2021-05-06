@@ -515,6 +515,9 @@ footer {
         margin: 20px;
     }
 
+    .filterBtn {
+        margin-left: 0;
+    }
     .filters ul {
         flex-wrap: wrap;
         margin: 0;
