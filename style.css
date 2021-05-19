@@ -1,14 +1,16 @@
 /* GLOBAL */
 
 :root {
-    --main-color: #0065FC;
-    --main-color-lighter: #DEEBFF;
-    --background-color: #f2f2f2;
-    --border-color : #d9d9d9;
+    --main-color: #31100e;
+    --main-color-lighter: #b7ab59;
+    --background-color: #f3f3f4;
+    /* --border-color : #d9d9d9; */
     --black: black;
     --white: white;
-    --font: 'Raleway', sans-serif;
+    --font: 'Montserrat', sans-serif;
+    --fancy-font:  'Homemade Apple', cursive;
 }
+
 
 * {
     box-sizing: border-box;
@@ -18,7 +20,10 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font);
+    background: url(images/leone-venter-VieM9BdZKFo-unsplash.jpg) no-repeat top right;
+    background-size: cover;
+    background-color: #efefef;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,6 +46,15 @@ li {
     list-style-type: none;
 }
 
+span {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+span:hover {
+    color: var(--main-color-lighter);
+}
+
 button {
     cursor: pointer;
     margin: 0;
@@ -58,696 +72,61 @@ a {
 }
 
 a:hover, a:focus, a:active {
-    color: var(--main-color);
+    color: var(--main-color-lighter);
 }
 
-
-
-/* HEADER */
-
-.headerMenu {
-    margin: 50px 0 50px 50px;
-    align-self: center;
-}
-
-.headerContainer {
-    display: flex;
-}
-
-#login {
-    margin-right: 50px;
-    margin-left: 20px;
-    align-self: center;
-}
-
-#login a {
-    padding-top: 62px;
-    padding: 62px 20px 20px 20px;
-    transition: .2s all ease;
-}
-
-#logo {
-    margin: 50px;
-    align-self: center;
-}
-
-.headerMenu ul {
-    padding: 0;
-    margin: 0;   
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
-
-.headerMenu li a {
-    padding: 62px 20px 0 20px;
-    transition: .2s all ease;
-}
-
-.headerMenu li a:hover, .headerMenu li a:focus, .headerMenu li a:active  {  
-    color: var(--main-color); 
-    border-top: 3px solid var(--main-color);
-}
-
-.headerMenu li a:focus, #login a:focus {
-    color: var(--main-color); 
-    border-top: 3px solid var(--main-color);
-    padding-bottom: 20px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 5px 5px 5px 2px #F2F2F2;
-    transition: .2s all ease;    
-} 
-
-#logo {    
-    flex: 1;    
-}
-
-#logo a {
-    padding: 0;
-}
-       
-#login a {
-    color: var(--main-color);
-    font-weight: bold;
-}
-
-#logo a:hover, #logo a:focus {
-    border: none;
-    background: none;
-    box-shadow: none;
-}
-
-.container {
+.container, .headerContainer {
     padding: 0 50px;
     max-width: 1440px;
     margin: 0 auto;
 }
 
+/* HEADER *************************************************/
 
-/* SEARCH SECTION */
-
-#searchSection h1 {
-    margin-bottom: 20px;
-}
-
-#searchSection p {
-    margin-top: 0;
-}
-
-.btnSearch i {
-    display: none;
-    transition: all .5s ease-out;
-}
-
-.form {
+.headerContainer {
     display: flex;
-    align-items: stretch;
-    border-radius: 10px;
-    overflow: hidden;
+    justify-content: top;  
+    padding: 50px ;   
+
 }
 
-#siteSearch {
-    padding: 9px;
-    border: 1px solid var(--background-color);
+.headerContainer h1 {
+    font-family: var(--fancy-font);
 }
 
-
-.form #siteSearch::placeholder, input{
-    font-weight: bold;
-    color: var(--black);
-    font-size: 16px;
-    font-family: var(--font);
-    border-radius: 0;
-    margin: 0;
+.section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    
 }
 
 
-#siteSearch {
-    margin: 0;
-    border-radius: 0;
+
+
+
+
+
+.text li {
+    padding: 20px 0 0 0;
 }
 
-.form #siteSearch::-webkit-input-placeholder { /* WebKit, Blink, Edge */ color: var(--black); }
-.form #siteSearch::-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color: var(--black); opacity:  1; }
-.form #siteSearch::-moz-placeholder { /* Mozilla Firefox 19+ */ color: var(--black); opacity:  1; }
-.form #siteSearch::-ms-input-placeholder { /* Internet Explorer 10-11 */ color: var(--black); }
-.form #siteSearch::-ms-input-placeholder { /* Microsoft Edge */ color: var(--black);}
-.form #siteSearch::placeholder { /* Most modern browsers support this now. */ color: var(--black); }
-
-.btnSearch {
-    background-color: var(--main-color); 
-    border: 1px solid var(--main-color);
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 10px;
-    color: var(--white);
-    transition: all .5s ease-out;    
-}
-
-.btnSearch:hover, .btnSearch:active{
-    background-color: var(--main-color-lighter);
-    border: 1px solid var(--main-color-lighter);
-    color: var(--black);
-    transition: all .5s ease-out;
-}
-
-.btnSearch:focus {
-    border-top: 1px solid var(--main-color);
-    border-right: 1px solid var(--main-color);
-    border-bottom: 1px solid var(--main-color);
-    background-color: var(--main-color-lighter);
-    color: var(--black);
-    transition: all .5s ease-out;
-}
-
-#searchSection .fa-map-marker-alt {
-    background-color: var(--background-color);
-    padding: 7px 10px 11px 10px;
-    display: inline-flex;
+/* 
+.text, .img{
+    width: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.filters {
-    font-weight: bold;
-    display: flex;
-    margin-top: 35px;
-    margin-bottom: 40px;
-}
-
-.filterTitle {
-    display: flex;
-}
-
-.filters span {
-    align-self: center;
-}
-
-.filters ul {
-    display: flex; 
-    margin-left: 30px;  
-}
-
-.filterBtn {
-    border-radius: 20px;
-    border: 1px solid var(--border-color);
-    border-left: var(--main-color-lighter);
-    background-color: var(--white);
-    padding: 0;
-    margin: 10px;
-    background: linear-gradient(to right, var(--main-color-lighter) 50%, white 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-    transition: all .5s ease-out;
-}
-
-.filterBtn:hover, .filterBtn:focus, .filterBtn:active { 
-    background-position: left bottom;
-    border-color: var(--main-color-lighter);
-}
-
-.filterBtn:focus {
-    border-color: var(--main-color);
-    transition: all .5s ease-out;
-}
-
-.filterBtn span {
-    padding: 0 30px 0 20px;
-    font-weight: bold;
-}
-
-.filters .fas {
-    height: 32px;
-    width: 32px;
-    color: var(--main-color);
-    background: var(--main-color-lighter);
-    border: 1px solid var(--main-color-lighter);
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;  
-}
-
-.info .fa-info {
-    height: 25px;
-    width: 25px;
-    font-size: 12px;
-    color: var(--main-color);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;    
-    margin-right: 15px;
-}
-
-.info p {
-    display: inline-flex;
-    margin: 0;
-}
+    flex-direction: column;
+} */
 
 
-/* ACCOMODATION  AND  MOST POPULAR */
-.sectionOne{
-    display: flex;
-    justify-content: space-between;
-    margin: 35px 0;
-}
-
-#accomodationsContainer{
-    width: 66%;
-    background-color:var(--background-color);
-    border-radius: 10px;
-    padding: 25px 40px;  
-}
-
-#accomodationsContainer h2 {
-    margin-bottom: 25px;
-}
-
-#accomodations {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
-}
-
-.more p {
-    font-weight: bold;
-    margin: 40px 0;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.more:hover, .more:focus {
-    color: var(--main-color);
-}
-
-#mostPopular{
-    width: 33.33%;
-    background-color: var(--background-color);
-    border-radius: 10px;
-    padding: 25px;
-    margin-left: 40px;
-}
-
-.mostPopularTitleContainer {
-    display: flex;
-    justify-content: space-between;
-}
-
-.mostPopularTitleContainer .fa-chart-line {
-    font-size: 20px;
-    line-height: 30px;
-}
-
-
-#mostPopular h2 {
-    margin-bottom: 25px;
-}
-
-.popular .card {
-    margin: 0 auto 40px auto;
-}
-
-.popular .cardContent{
-    height: 150px;
-    display: flex;
-}
-
-.popular .cardText {
-    flex: 50%;
-    padding: 20px 50px 15px 20px;
-    display: flex;
-    flex-direction: column;    
-    justify-content: space-between;
-}
-
-.popular .cardImg {
-      flex: 33%;
-}
-
-.card {
-    background-color: var(--white);
-    border: 5px solid var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 5px 5px 5px 2px #e6e6e6;
-    transition: .2s all ease;
-}
-
-.card:hover, .card:focus {
-    box-shadow: 0 0 10px 3px #a8a8a8;
-    transition: .2s all ease;
-}
-
-
-
-.cardText {
-    padding: 10px 15px;
-}
-
-.card a:hover, .card a:hover {
-    color: var(--black);
-}
-
-.card span {
-    font-weight: bold;
-}
-
-.card p {
-    margin: 5px 0;
-}
-
-.cardImg img {
-    width: 100%;
-    height: 160px;
+/* 
+.img img{
     object-fit: cover;
-}
-
-.iconStar {
-    color: var(--background-color);
-    font-size: 13px;
-    padding-top: 10px;
-}
-
-.note {
-    color: var(--main-color);
-}
-
-
-/* ACTIVITIES */
-
-.activitiesContainer {
-    padding-top: 30px;
-    padding-bottom: 50px;
-    display: flex;    
-}
-
-.activity {
-    width: 25%;
-}
-
-.activity .card {
-    border: none;
-    margin: 0 20px;    
-}
-
-.activity .cardText{
-    padding: 22px;
-}
-
-.activity .cardImg img {
-    height: 400px;
-}
-
-.activityContent {
-    display: flex;
-    flex-direction: column;   
-}
-.activityContent .cardImg img {
-    height: 140px;
-}
-
-.activityContent .card2 img { height: 180px;}
-.activityContent .card3 img { height: 110px;}
-.activityContent .card5 img { height: 140px;}
-.activityContent .card6 img { height: 150px;}
-
-
-.activityContent .card {
-    margin-bottom: 40px;
-}
-
-/* FOOTER */
-
-footer {
-    display: flex;    
-}
-
-.footerMenu {
-    padding: 30px 70px;
-    justify-content: space-between;
+    height: 100%;
     width: 100%;
-    background-color: var(--background-color);
-    display: flex;  
-}
-
-.footerMenuContent {
-    width: 15%;
-}
-
-.footerMenu li {
-    padding: 5px;
-}
-
-.footerMenuTitle {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/***************************** SMALLER SCREENS / IPADS  *****************************/
-
-@media all and (max-width: 1024px){
+    opacity: 0.5;
     
-    .filters {
-        display: inline;
-        margin: 20px;
-    }
+} */
 
-    .filterBtn {
-        margin-left: 0;
-    }
-    .filters ul {
-        flex-wrap: wrap;
-        margin: 0;
-    }
-
-    .container {
-        padding: 0 20px;
-    }
-
-    #accomodations {
-        grid-template-columns: 1fr;
-    }
-
-    #mostPopular {
-        height: 50%;
-    }
-     .popular .cardContent {
-        height: auto;
-        display: inline-block;
-    } 
-
-    .popular .cardText {
-        padding: 10px;
-    }
-
-    .activitiesContainer {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .activity {
-        width: 100%;
-    }
-
-    .footerMenuContent{
-        width: 25%;
-    }
-    .footerMenuContent:last-child{
-        width: 0;
-        display: none;
-        
-    }
-}
-
-
-/***************************** MOBILE ****************************/
-
-@media all and (max-device-width: 480px)
-{
-    .headerContainer {
-        display: inline;
-        margin-bottom: 50px;
-    }
-
-    .headerMenu {
-        margin:0;
-    }
-
-    .headerMenu li {
-        width: 100%;
-    }
-
-    .headerMenu li a {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border-bottom: 3px solid var(--background-color);
-        display: inline-block;
-        width: 100%;
-        text-align: center;
-    }
-
-    .headerMenu li a:hover, .headerMenu li a:focus, .headerMenu li a:active  {  
-        color: var(--main-color); 
-        border-top: none;
-        border-bottom: 3px solid var(--main-color);
-    }
-
-    #logo {
-        margin:20px;   
-    }
-
-    #login {
-        margin: 0;
-        position: absolute;
-        top: 35px;
-        right: 20px; 
-    }
-    
-    .popular .cardContent {
-        height: 150px;
-        display: flex;
-    }
-
-    .popular .cardText {
-        padding: 20px 20px 15px 20px;
-        font-size: 15px;
-    }
-
-    .filters {
-        display: inline-block;
-        width: 100%;
-    }
-    .filters ul {
-        display: inline-block;
-        margin: 0;
-    }
-
-    .filters li {
-        display: inline;
-    } 
-
-    .filterBtn {
-        margin-left: 0;
-    }
-
-    .filterBtn span {
-        padding: 10px 20px 10px 10px;
-    }
-    #searchSection  {
-        margin-top: 40px;
-    }
-
-    .btnSearch {
-        border-radius: 20%;
-        padding: 20px;
-        margin-left: -10px;
-    }
-
-    #searchSection .fa-map-marker-alt {
-        padding: 20px;
-    }
-    .btnSearch i {
-        display: inline;
-    }
-    .btnSearch span {
-        display: none;
-    }
-
-    #searchSection, .info{
-        padding: 20px;
-    }
-
-    #searchSection p {
-        margin-bottom: 35px;
-    }
-
-    .filterTitle{
-        margin-bottom: 15px;
-    }
-    .filters {
-        padding: 0 20px;
-        margin: 15px 0 0 0;
-    }
-    .filters span {
-        justify-content: space-between;
-    }
-
-    .info p {
-        display: inline;
-    }
-
-    .info .fa-info {
-        margin-right: 10px;
-    }
-
-    .container {
-        padding: 0;
-    }
-
-    .sectionOne {
-        flex-direction: column-reverse;
-        padding: 0;
-        margin-bottom: 0;
-    }
-
-    #accomodationsContainer{
-        width: 100%;
-        background-color: var(--white);
-        padding: 40px 20px 0 20px;
-    }
-
-    #accomodations {
-        grid-template-columns:repeat(1, 1fr) ;
-    }
-
-    #mostPopular{
-        width: 100%;
-        padding: 20px;
-        margin: 0;
-    }
-
-   
-    .activitiesContainer {
-        padding: 0;
-        margin: 0;
-        display: inline;
-    }
-    .activityContent .card { 
-        margin: 20px 0;
-    }
-
-    #activities  {
-        padding: 20px 20px 0 20px ;
-    }
-
-    .activity .cardImg img      { height: 135px;}
-    .activityContent .card2 img { height: 135px;}
-    .activityContent .card3 img { height: 135px;}
-    .activityContent .card5 img { height: 135px;}
-    .activityContent .card6 img { height: 135px;}
-
-
-    .activity {
-        width: 100%;
-        padding: 0 20px;
-        margin: 0; 
-    }
-
-    .activity .card{
-        margin: 20px 0;
-    }
-
-
-        .footerMenu {
-            display: inline-block;
-            padding: 45px 0 0 25px;
-        }
-
-        .footerMenuContent {
-            width: 100%;
-            margin-bottom: 60px;
-        }
-
-    }
