@@ -1,0 +1,135 @@
+/***************************** GLOBAL **************************************************/
+
+$main-color: #9356DC;
+$secondary-color: #FF79DA;
+$tertiary-color: #99E2D0;
+
+$localisation-color: #4b4b4b;
+
+$background-color: #f6f6f6;
+$background-color-darker: #eaeaea;
+
+$font: 'Roboto', sans-serif;
+$font-title: 'Shrikhand', cursive;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: $font;
+}
+
+h1 {
+    margin: 0;
+    font-family: $font-title;
+}
+h2, h3, h4, h5, h6 {
+    margin: 0;   
+    margin-bottom: 20px; 
+}
+
+p {
+    padding: 0;
+    margin: 0 0 1em;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+a, button {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover, a:focus, a:active {
+   
+}
+
+@media all and (max-device-width: 480px) {}
+
+/***************************** HEADER **************************************************/
+
+header {
+    position: relative;
+}
+.header {
+    position: sticky;
+    height: 65px;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+/***************************** LOCALISATION **************************************************/
+.localisationContainer {
+    background: $background-color-darker;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $localisation-color;
+    
+}
+/***************************** EXPLORE  **************************************************/
+.exploreContainer {
+    padding: 40px;
+    font-weight: lighter;
+    text-align: center;
+    background: $background-color;
+}
+
+.explorebtn {
+    background: linear-gradient(to bottom right, $secondary-color, $main-color);
+    border: none;
+    border-radius: 20px;
+    padding: 15px;
+    color: #fff;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/***************************** HOW TO **************************************************/
+
+.howtoContainer {
+    padding: 50px 20px 60px 20px;
+}
+
+.howtoCard {
+    width: 300px;
+    height: 80px;
+    background: $background-color;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 5px 10px 20px 1px #b5b5b5;
+}
+
+
+
+
+
