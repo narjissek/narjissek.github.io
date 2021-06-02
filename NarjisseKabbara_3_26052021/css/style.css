@@ -1,4 +1,8 @@
 /***************************** GLOBAL **************************************************/
+.fas, .far {
+  color: #7e7e7e;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -76,12 +80,22 @@ header {
   color: #4b4b4b;
 }
 
+#localisation {
+  margin-left: -20px;
+}
+#localisation span {
+  margin-left: 20px;
+}
+
 /***************************** EXPLORE  **************************************************/
 .exploreContainer {
   padding: 40px;
   font-weight: lighter;
   text-align: center;
   background: #f6f6f6;
+}
+.exploreContainer h2 {
+  margin: 0 20px 20px 20px;
 }
 
 .explorebtn {
@@ -90,8 +104,8 @@ header {
   border-radius: 20px;
   padding: 15px;
   color: #fff;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /***************************** HOW TO **************************************************/
@@ -110,6 +124,430 @@ header {
   align-items: center;
   cursor: pointer;
   box-shadow: 5px 10px 20px 1px #b5b5b5;
+  transition: all 0.2s;
 }
+.howtoCard:last-child, .howtoCard:hover, .howtoCard:active {
+  transition: all ease 0.2s;
+  background: #f5edff;
+}
+
+.howtoNumber {
+  background: #9356DC;
+  border-radius: 50%;
+  color: #fff;
+  padding: 5px 10px;
+  position: absolute;
+  left: 30px;
+}
+
+.howtoText {
+  margin-left: -20px;
+}
+.howtoText i {
+  margin-right: 20px;
+}
+
+/***************************** RESTAURANTS **************************************************/
+.restaurant {
+  background: #f6f6f6;
+  padding: 50px 20px;
+}
+
+.restau {
+  position: relative;
+  display: block;
+  margin: 0 auto 20px auto;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 5px 5px 5px 2px #e6e6e6;
+  transition: 0.2s all ease;
+}
+.restau:hover, .restau:focus, .restau:active {
+  box-shadow: 0 0 10px 3px #a8a8a8;
+  transition: 0.2s all ease;
+}
+.restau__img img {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.restau__text {
+  color: #000;
+  padding: 0;
+}
+.restau__text span {
+  font-weight: bold;
+  margin-left: 20px;
+}
+.restau__text p {
+  font-weight: lighter;
+  padding-top: 5px;
+  margin-left: 20px;
+}
+
+.restau__text__icon {
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+  font-size: 25px;
+  background: none;
+  border: none;
+}
+.restau__text__icon .far {
+  color: #000;
+  transition: all 2s ease-out;
+}
+.restau__text__icon .fas {
+  display: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 2s ease-out;
+}
+.restau__text__icon:hover, .restau__text__icon:focus, .restau__text__icon:active {
+  transition: all 2s ease-out;
+}
+.restau__text__icon:hover .far, .restau__text__icon:focus .far, .restau__text__icon:active .far {
+  display: none;
+}
+.restau__text__icon:hover .fas, .restau__text__icon:focus .fas, .restau__text__icon:active .fas {
+  display: inline-block;
+}
+
+.newtag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  opacity: 0.9;
+  height: 25px;
+  width: 80px;
+  background: #99e2d0;
+  color: #008766;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+/***************************** FOOTER **************************************************/
+footer {
+  background: #353535;
+  color: #fff;
+}
+
+.menuFooter {
+  padding: 25px;
+}
+.menuFooter h2 {
+  font-family: "Shrikhand", cursive;
+  margin-bottom: 25px;
+}
+.menuFooter li {
+  padding: 5px;
+}
+.menuFooter a {
+  color: #fff;
+}
+.menuFooter a:hover, .menuFooter a:focus, .menuFooter a:active {
+  color: #9356DC;
+}
+.menuFooter a:hover .fas, .menuFooter a:focus .fas, .menuFooter a:active .fas {
+  color: #9356DC;
+}
+.menuFooter .fas {
+  color: #fff;
+  padding-right: 15px;
+}
+
+/**************************************** MENUS **************************************************/
+.header {
+  color: #000;
+}
+.header .fas {
+  color: #353535;
+  font-size: 25px;
+  position: absolute;
+  left: 25px;
+}
+.header:hover, .header:focus, .header:active {
+  color: #7e7e7e;
+}
+.header:hover .fas, .header:focus .fas, .header:active .fas {
+  color: #7e7e7e;
+}
+
+.hero img {
+  height: 270px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.menu {
+  position: relative;
+  padding: 50px;
+  font-weight: lighter;
+  text-align: center;
+  background: #f6f6f6;
+  border-radius: 45px 45px 0 0;
+  margin-top: -40px;
+  z-index: 1;
+}
+
+.menuTitle {
+  display: flex;
+  justify-content: space-between;
+}
+.menuTitle h2 {
+  font-family: "Shrikhand", cursive;
+  margin: 0;
+}
+
+.menuLike {
+  font-size: 25px;
+  background: none;
+  border: none;
+}
+.menuLike .far {
+  color: #000;
+  transition: all 2s ease-out;
+}
+.menuLike .fas {
+  display: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 2s ease-out;
+}
+.menuLike:hover, .menuLike:focus, .menuLike:active {
+  transition: all 2s ease-out;
+}
+.menuLike:hover .far, .menuLike:focus .far, .menuLike:active .far {
+  display: none;
+}
+.menuLike:hover .fas, .menuLike:focus .fas, .menuLike:active .fas {
+  display: inline-block;
+}
+
+/*************************** MENU CONTENT ****************************************/
+.menuContent {
+  background: #f6f6f6;
+}
+.menuContent h2 {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-weight: lighter;
+}
+.menuContent h2:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 15%;
+  height: 2px;
+  background: #99E2D0;
+  transition: ease-in-out 0.5s;
+}
+.menuContent h2:hover:after, .menuContent h2:focus:after, .menuContent h2:active:after {
+  width: 30%;
+  transition: ease-in-out 0.5s;
+}
+
+.itemMenu {
+  position: relative;
+  margin: 20px;
+  height: 80px;
+  background: #f6f6f6;
+  border-radius: 20px;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 5px 10px 20px 1px #b5b5b5;
+  transition: ease-in-out 0.4s;
+  overflow: hidden;
+}
+.itemMenu:hover, .itemMenu:focus, .itemMenu:active {
+  transition: all ease 0.2s;
+}
+.itemMenu:hover .itemMenu__price, .itemMenu:focus .itemMenu__price, .itemMenu:active .itemMenu__price {
+  transition: ease-in-out 0.5s;
+}
+.itemMenu:hover .itemChoice, .itemMenu:focus .itemChoice, .itemMenu:active .itemChoice {
+  right: 0;
+  transition: ease-in-out 0.5s;
+}
+.itemMenu:hover .itemChoice .fas, .itemMenu:focus .itemChoice .fas, .itemMenu:active .itemChoice .fas {
+  transform: rotate(360deg);
+  transition: ease-in-out 0.8s;
+}
+.itemMenu__text {
+  padding: 15px;
+}
+.itemMenu__text p {
+  font-weight: lighter;
+  margin-top: 10px;
+  font-size: 13px;
+  margin: 0;
+}
+
+.itemChoice {
+  width: 60px;
+  position: absolute;
+  top: 0;
+  right: -60px;
+  background: #99E2D0;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 0 20px 20px 0;
+  transition: ease-in-out 0.5s;
+}
+.itemChoice .fas {
+  color: #fff;
+  font-size: 22px;
+  transition: ease-in-out 0.8s;
+}
+
+.itemMenu_plat {
+  font-weight: bold;
+  font-size: 18px;
+}
+.itemMenu_plat p, .itemMenu_plat span {
+  display: flex;
+  align-content: space-between;
+}
+
+.truc {
+  display: flex;
+  align-content: space-between;
+  overflow: hidden;
+}
+
+.itemMenu__price {
+  font-weight: bold;
+  margin-left: 150px;
+  font-size: 18px;
+  transition: ease-in-out 0.5s;
+}
+
+/************** ACCORDEON **************/
+#menuContainer {
+  height: auto;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+
+.accordion label {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion p {
+  padding: 10px;
+  line-height: 1.7em;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  text-align: left;
+  margin-top: 0px;
+}
+
+#tm:checked ~ .hiddentext {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+input#tm {
+  display: none;
+  position: relative;
+}
+
+#tn:checked ~ .hiddentext {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+input#tn {
+  display: none;
+  position: relative;
+}
+
+#to:checked ~ .hiddentext {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+#to:checked ~ .hiddentext #container {
+  width: 400px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 3%;
+  border-top: 1px solid #bdbdbd;
+  border-left: 1px solid #bdbdbd;
+  border-right: 1px solid #bdbdbd;
+}
+#to:checked ~ .hiddentext .accordion label {
+  display: block;
+  background-color: #eeeeee;
+  padding: 10px;
+  color: #424242;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  border-bottom: 1px solid #bdbdbd;
+  border-top: 1px solid #ffffff;
+}
+#to:checked ~ .hiddentext .accordion p {
+  color: #424242;
+  padding: 10px;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  border-bottom: 1px solid #bdbdbd;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  text-align: left;
+  background-color: #fff;
+  margin-top: 0px;
+}
+#to:checked ~ .hiddentext #tm:checked ~ .hiddentext {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+#to:checked ~ .hiddentext input#tm {
+  display: none;
+  position: relative;
+}
+#to:checked ~ .hiddentext #tn:checked ~ .hiddentext {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+#to:checked ~ .hiddentext input#tn {
+  display: none;
+  position: relative;
+}
+#to:checked ~ .hiddentext #to:checked ~ .hiddentext {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+#to:checked ~ .hiddentext input#to {
+  display: none;
+  position: relative;
+}
+
+input#to {
+  display: none;
+  position: relative;
+}
+
+/*************************/
 
 /*# sourceMappingURL=style.css.map */

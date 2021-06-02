@@ -1,16 +1,23 @@
 /***************************** GLOBAL **************************************************/
 
 $main-color: #9356DC;
+$main-color-lighter: #f5edff;
 $secondary-color: #FF79DA;
 $tertiary-color: #99E2D0;
 
-$localisation-color: #4b4b4b;
+$localisation-color: #4b4b4b; 
+$footer : #353535;
+$icon : #7e7e7e;
 
 $background-color: #f6f6f6;
 $background-color-darker: #eaeaea;
 
 $font: 'Roboto', sans-serif;
 $font-title: 'Shrikhand', cursive;
+
+.fas, .far {
+    color: $icon;
+}
 
 * {
     box-sizing: border-box;
@@ -90,15 +97,28 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $localisation-color;
-    
+    color: $localisation-color;   
 }
+
+#localisation {
+    margin-left: -20px;
+
+    span {
+        margin-left: 20px;
+    }
+}
+
+
 /***************************** EXPLORE  **************************************************/
 .exploreContainer {
     padding: 40px;
     font-weight: lighter;
     text-align: center;
     background: $background-color;
+
+    h2 {
+        margin: 0 20px 20px 20px;
+    }
 }
 
 .explorebtn {
@@ -107,8 +127,8 @@ header {
     border-radius: 20px;
     padding: 15px;
     color: #fff;
-    margin-top: 30px;
-    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 /***************************** HOW TO **************************************************/
@@ -128,10 +148,501 @@ header {
     align-items: center;
     cursor: pointer;
     box-shadow: 5px 10px 20px 1px #b5b5b5;
+    transition: all .2s;
     
+    &:last-child, &:hover, &:active {
+        transition: all ease .2s;
+        background: $main-color-lighter;
+    }
+}
+
+.howtoNumber {
+    background: $main-color;
+    border-radius: 50%;
+    color: #fff;
+    padding: 5px 10px ;
+    position: absolute;
+    left: 30px;
+}
+
+.howtoText {
+    margin-left: -20px;
+    i {
+        margin-right: 20px;
+    }
 }
 
 
 
+/***************************** RESTAURANTS **************************************************/
+
+.restaurant {
+    background: $background-color;
+    padding: 50px 20px;
+}
+
+.restau {
+    position: relative;
+    display: block;
+    margin: 0 auto 20px auto;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 5px 5px 2px #e6e6e6;
+    transition: .2s all ease;
+
+        &:hover, &:focus, &:active {
+            box-shadow: 0 0 10px 3px #a8a8a8;
+            transition: .2s all ease;
+        }
+        
+        &__img {
+            
+            img{
+                width: 100%;
+                height: 175px;
+                object-fit: cover;
+                margin-bottom: 15px;
+            }
+        }
+        
+
+        &__text {
+            
+            color: #000;
+            padding: 0;    
+            
+
+            span {
+                font-weight: bold;
+                margin-left: 20px;
+            }
+
+            p {
+                font-weight: lighter;
+                padding-top: 5px;
+                margin-left: 20px;
+            }
+        }
+}
 
 
+
+.restau__text__icon {
+    position: absolute;
+    bottom: 25px;
+    right: 20px;
+    font-size: 25px;
+    background: none;
+    border: none;
+
+        .far {
+            color: #000;
+            transition: all 2s ease-out;
+        }
+
+        .fas {
+            display: none;
+            background: -webkit-gradient(linear, left top, left bottom, from($main-color), to($secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;            
+            transition: all 2s ease-out;  
+        }
+
+        &:hover, &:focus, &:active {   
+            transition: all 2s ease-out;
+            .far {display: none;}
+            .fas { display: inline-block;} 
+        }
+}
+
+
+
+.newtag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0.9;
+    height: 25px;
+    width: 80px;
+    background: #99e2d0;
+    color: #008766;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+
+/***************************** FOOTER **************************************************/
+
+footer {
+    // height: 200px;
+    background: $footer;
+    color: #fff;
+}
+
+.menuFooter {
+    padding: 25px;
+
+    h2 {
+        font-family: $font-title;
+        margin-bottom: 25px;
+    }
+
+    li {
+        padding: 5px;
+    }
+
+    a {
+        color: #fff;
+
+        &:hover, &:focus, &:active {
+            color: $main-color;
+
+            .fas {
+                color: $main-color;
+            }
+        }
+    }
+
+    .fas {
+        color: #fff;
+        padding-right: 15px;
+    }
+}
+
+
+/**************************************** MENUS **************************************************/
+
+
+.header {
+    color: #000;
+    .fas {
+        color: #353535;
+        font-size: 25px;
+        position: absolute;
+        left: 25px;
+    }
+
+    &:hover, &:focus, &:active {
+        color: $icon;
+        .fas {
+            color: $icon;
+        }
+    }
+}
+
+
+.hero img {
+    height: 270px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.menu {   
+    position: relative;
+    padding: 50px;
+    font-weight: lighter;
+    text-align: center;
+    background: $background-color;
+    border-radius: 45px 45px 0 0;
+    margin-top: -40px;
+    z-index: 1;
+}
+
+.menuTitle {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+        font-family: $font-title;
+        margin: 0;
+    }
+
+}
+
+.menuLike {
+    font-size: 25px;
+    background: none;
+    border: none;
+
+        .far {
+            color: #000;
+            transition: all 2s ease-out;
+        }
+
+        .fas {
+            display: none;
+            background: -webkit-gradient(linear, left top, left bottom, from($main-color), to($secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;            
+            transition: all 2s ease-out;  
+        }
+
+        &:hover, &:focus, &:active {   
+            transition: all 2s ease-out;
+            .far {display: none;}
+            .fas { display: inline-block;} 
+        }
+}
+
+
+/*************************** MENU CONTENT ****************************************/
+
+.menuContent {
+    background: $background-color;
+
+    h2 {
+        position: relative;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-weight: lighter;
+        
+        
+
+        &:after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 15%;
+            height: 2px;
+            background: $tertiary-color;
+            transition: ease-in-out 0.5s;
+
+        }
+
+        &:hover, &:focus, &:active {
+            &:after {
+                width: 30%;
+                transition: ease-in-out 0.5s;
+            }
+        }
+    }
+}
+
+
+.menuContent h2:hover:after {
+
+
+}
+.itemMenu {
+    position: relative;
+    margin: 20px;
+    height: 80px;
+    background: $background-color;
+    border-radius: 20px;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 5px 10px 20px 1px #b5b5b5;
+    transition: ease-in-out 0.4s;
+    overflow: hidden;
+
+    
+    
+         &:hover, &:focus, &:active {
+        transition: all ease .2s;
+
+
+            .itemMenu__price {
+                // margin-left: 90px;
+                transition: ease-in-out 0.5s;
+            }
+
+                .itemChoice {
+                right: 0;
+                transition: ease-in-out 0.5s;
+
+                .fas {
+                    transform:rotate(360deg);
+                    transition: ease-in-out 0.8s;
+                }
+            }
+
+    }
+
+    &__text {
+        padding: 15px;
+        p {
+            font-weight: lighter;
+            margin-top: 10px;
+            font-size: 13px;
+            margin: 0;
+        }
+    }
+}
+
+.itemChoice { 
+    width: 60px;
+    position: absolute;
+    top: 0;
+    right: -60px;
+    background: $tertiary-color;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 20px 20px 0;
+    transition: ease-in-out 0.5s;
+
+    .fas {
+        color: #fff;
+        font-size: 22px;
+        transition: ease-in-out 0.8s;
+        
+    }
+}
+
+.itemMenu_plat {
+    font-weight: bold;
+    font-size: 18px;
+
+    p, span {
+        
+        display: flex;
+        align-content: space-between;
+    }
+}
+
+.truc {
+    display: flex;
+    align-content: space-between;
+    overflow: hidden;
+
+}
+
+
+
+.itemMenu__price {
+    font-weight: bold;
+    margin-left: 150px;
+    font-size: 18px;  
+    transition: ease-in-out 0.5s;
+}
+
+/************** ACCORDEON **************/
+
+#menuContainer{
+    height: auto;
+    margin: 0 auto;
+    margin-top: 3%;
+  }
+
+  .accordion label{
+    display:block; 
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .accordion p{
+    padding: 10px;    
+    line-height: 1.7em;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    text-align: left;
+    margin-top: 0px;
+  }
+  
+  #tm:checked ~ .hiddentext{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  input#tm{
+    display: none;
+    position: relative;
+  }
+  
+  #tn:checked ~ .hiddentext{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  input#tn{
+    display: none;
+    position: relative;
+  }
+  
+  #to:checked ~ .hiddentext{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    #container{
+  width: 400px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 3%;
+  border-top: 1px solid #bdbdbd;
+  border-left: 1px solid #bdbdbd;
+  border-right: 1px solid #bdbdbd;
+}
+.accordion label{
+  display:block;
+  background-color: #eeeeee;
+  padding: 10px;
+  color: #424242;
+  text-shadow: 0 0 2px rgba(255,255,255,0.6);
+  cursor: pointer;
+  border-bottom: 1px solid #bdbdbd;
+  border-top: 1px solid #ffffff;
+}
+
+.accordion p{
+  color: #424242;
+  padding: 10px;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  border-bottom: 1px solid #bdbdbd;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  text-align: left;
+  background-color: #fff;
+  margin-top: 0px;
+}
+
+#tm:checked ~ .hiddentext{
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+input#tm{
+  display: none;
+  position: relative;
+}
+
+#tn:checked ~ .hiddentext{
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+input#tn{
+  display: none;
+  position: relative;
+}
+
+#to:checked ~ .hiddentext{
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+input#to{
+  display: none;
+  position: relative;
+}
+  }
+  
+  input#to{
+    display: none;
+    position: relative;
+  }
+
+  /*************************/
