@@ -1,8 +1,10 @@
 /***************************** GLOBAL **************************************************/
 
 $main-color: #9356DC;
+$main-color-lighten: lighten($main-color, 10%); 
 $main-color-lighter: #f5edff;
 $secondary-color: #FF79DA;
+$secondary-color-lighten: lighten($secondary-color, 1%);
 $tertiary-color: #99E2D0;
 
 $localisation-color: #4b4b4b; 
@@ -14,6 +16,37 @@ $background-color-darker: #eaeaea;
 
 $font: 'Roboto', sans-serif;
 $font-title: 'Shrikhand', cursive;
+
+
+@keyframes slidein {
+    from {
+      transform: translate3d(0, 20px, 0);
+      opacity: 0;
+    }
+  
+    to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+  }
+
+  @keyframes spin {
+      0% {
+          transform: rotate(0deg);
+          border-top: 10px solid $main-color;
+          border-bottom: 10px solid $secondary-color;
+      }
+
+      100% {
+          transform: rotate(360deg);
+          border-top: 10px solid $secondary-color;
+          border-bottom: 10px solid $main-color;   
+      }
+      
+  }
+
+
+
 
 .fas, .far {
     color: $icon;
@@ -73,6 +106,29 @@ a:hover, a:focus, a:active {
    
 }
 
+.loader {
+    height: 100%;
+    width: 100%;
+    background-color: #f5edff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+     top: 0; left: 0; bottom: 0; right: 0;
+    z-index: 2;
+}
+.chargement {
+    border-top: 10px solid $main-color;
+    border-bottom: 10px solid $secondary-color;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    // margin: auto;
+    // position: absolute;
+    // top: 0; left: 0; bottom: 0; right: 0;
+    animation: spin 2s linear infinite;
+}
+
 @media all and (max-device-width: 480px) {}
 
 /***************************** HEADER **************************************************/
@@ -121,14 +177,34 @@ header {
     }
 }
 
-.explorebtn {
-    background: linear-gradient(to bottom right, $secondary-color, $main-color);
+.btnContainer {
+    text-align: center;
+}
+.btn {
+    background: linear-gradient(to bottom right, $secondary-color, $main-color); 
     border: none;
-    border-radius: 20px;
+    border-radius: 50px;
     padding: 15px;
     color: #fff;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-weight: normal;
+    margin: 20px auto 10px auto;
+    box-shadow: 5px 5px 5px 2px #e6e6e6;
+    display: inline-block;
+    transition: all ease .2s;
+    
+    
+        a {
+            color: #fff;
+        }
+
+        &:hover, &:focus, &:active {
+            box-shadow: 0 0 10px 3px #a8a8a8;
+            background: linear-gradient(to bottom right, $secondary-color-lighten, $main-color-lighten); 
+            transition: all ease .2s;
+
+        }
+
+
 }
 
 /***************************** HOW TO **************************************************/
@@ -149,8 +225,12 @@ header {
     cursor: pointer;
     box-shadow: 5px 10px 20px 1px #b5b5b5;
     transition: all .2s;
+
+    a {
+        color: #000;;
+    }
     
-    &:last-child, &:hover, &:active {
+    &:hover, &:active, &:focus {
         transition: all ease .2s;
         background: $main-color-lighter;
     }
@@ -228,32 +308,40 @@ header {
 
 
 
-.restau__text__icon {
+.restau__text__icon, .menuLike {
     position: absolute;
     bottom: 25px;
     right: 20px;
     font-size: 25px;
     background: none;
     border: none;
+    line-height: 1;
 
-        .far {
-            color: #000;
-            transition: all 2s ease-out;
-        }
+    .far {
+        color: #000;      
+    }
 
+    .fas {
+        transform: scale(0);
+        background: -webkit-gradient(linear,left top, left bottom, from($main-color), to($secondary-color) );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;     
+        position: absolute;            
+        top: 0;
+        left: 0;
+        width: 100%;
+        transition: transform ease-out .2s;
+        
+        
+    }
+
+    &:hover, &:focus, &:active {   
         .fas {
-            display: none;
-            background: -webkit-gradient(linear, left top, left bottom, from($main-color), to($secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;            
-            transition: all 2s ease-out;  
-        }
-
-        &:hover, &:focus, &:active {   
-            transition: all 2s ease-out;
-            .far {display: none;}
-            .fas { display: inline-block;} 
-        }
+            transform: scale(1.1);
+            transition: transform .5s cubic-bezier(.12,.62,.08,1.44);
+            
+        }         
+    }
 }
 
 
@@ -323,12 +411,15 @@ footer {
         font-size: 25px;
         position: absolute;
         left: 25px;
+        
     }
 
     &:hover, &:focus, &:active {
-        color: $icon;
+        text-shadow: 1px 1px 2px #b5b5b5;
+        transition: ease-in-out .2s;
         .fas {
-            color: $icon;
+            font-size: 35px;
+            transition: ease-in-out .2s;
         }
     }
 }
@@ -343,7 +434,7 @@ footer {
 
 .menu {   
     position: relative;
-    padding: 50px;
+    padding: 40px 35px 20px 20px;
     font-weight: lighter;
     text-align: center;
     background: $background-color;
@@ -355,49 +446,53 @@ footer {
 .menuTitle {
     display: flex;
     justify-content: space-between;
+
     h2 {
+        font-size: 28px;
         font-family: $font-title;
         margin: 0;
     }
 
 }
 
-.menuLike {
-    font-size: 25px;
-    background: none;
-    border: none;
+// .menuLike {
+//     font-size: 25px;
+//     background: none;
+//     border: none;
 
-        .far {
-            color: #000;
-            transition: all 2s ease-out;
-        }
+//         .far {
+//             color: #000;
+//             transition: all 2s ease-out;
+//         }
 
-        .fas {
-            display: none;
-            background: -webkit-gradient(linear, left top, left bottom, from($main-color), to($secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;            
-            transition: all 2s ease-out;  
-        }
+//         .fas {
+//             display: none;
+//             background: -webkit-gradient(linear, left top, left bottom, from($main-color), to($secondary-color));
+//             -webkit-background-clip: text;
+//             -webkit-text-fill-color: transparent;            
+//             transition: all 2s ease-out;  
+//         }
 
-        &:hover, &:focus, &:active {   
-            transition: all 2s ease-out;
-            .far {display: none;}
-            .fas { display: inline-block;} 
-        }
-}
+//         &:hover, &:focus, &:active {   
+//             transition: all 2s ease-out;
+//             .far {display: none;}
+//             .fas { display: inline-block;} 
+//         }
+// }
 
 
 /*************************** MENU CONTENT ****************************************/
 
 .menuContent {
     background: $background-color;
+    padding: 0 20px 45px 20px;
+    
 
-    h2 {
+    h3 {
         position: relative;
         text-transform: uppercase;
-        font-weight: normal;
         font-weight: lighter;
+        padding-top: 30px;
         
         
 
@@ -407,78 +502,123 @@ footer {
             position: absolute;
             bottom: -5px;
             left: 0;
-            width: 15%;
+            width: 12%;
             height: 2px;
             background: $tertiary-color;
             transition: ease-in-out 0.5s;
 
         }
 
-        &:hover, &:focus, &:active {
-            &:after {
-                width: 30%;
-                transition: ease-in-out 0.5s;
-            }
-        }
+        // &:hover, &:focus, &:active {
+            
+        //         font-weight: 300;
+        //         transition: ease 0.2s;
+            
+        //     &:after {
+        //         width: 25%;
+        //         transition: ease-in-out 0.5s;
+        //     }
+        // }
     }
 }
 
+/******* menu card **********/
 
-.menuContent h2:hover:after {
-
-
-}
-.itemMenu {
+.menuCardContainer {
+    animation: slidein 1.5s backwards .3s;
     position: relative;
-    margin: 20px;
     height: 80px;
+    margin: 15px 0;
     background: $background-color;
     border-radius: 20px;
-    align-items: center;
     cursor: pointer;
     box-shadow: 5px 10px 20px 1px #b5b5b5;
     transition: ease-in-out 0.4s;
     overflow: hidden;
 
-    
-    
-         &:hover, &:focus, &:active {
-        transition: all ease .2s;
-
-
-            .itemMenu__price {
-                // margin-left: 90px;
-                transition: ease-in-out 0.5s;
-            }
-
-                .itemChoice {
-                right: 0;
-                transition: ease-in-out 0.5s;
-
-                .fas {
-                    transform:rotate(360deg);
-                    transition: ease-in-out 0.8s;
-                }
-            }
-
+    &:nth-child(2) {
+        animation-delay: .5s;
     }
-
-    &__text {
-        padding: 15px;
-        p {
-            font-weight: lighter;
-            margin-top: 10px;
-            font-size: 13px;
-            margin: 0;
+    &:nth-child(3) {
+        animation-delay: .9s;
+    }
+    &:hover, &:active, &:focus {
+        .dish {
+            transition: ease-in-out 0.5s;
+        }
+    
+        .price { 
+            transition: ease-in-out 0.5s;
+        }
+    
+        .dishSelected{
+            width: 25%;
+            transition: ease-in-out 0.5s;
+    
+            .fas {
+                font-size: 22px;
+                transform:rotate(360deg);
+                transition: ease-in-out 0.6s;
+            }
         }
     }
 }
 
-.itemChoice { 
-    width: 60px;
-    position: absolute;
-    top: 0;
-    right: -60px;
+
+.cardContainer {
+    
+
+}
+
+
+.menuCard {
+    width: 100%;
+    height: 100%;
+    display: flex; 
+}
+
+.dish {
+    width: 80%;
+    padding: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 18px;
+    
+    span, p {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    p {
+        margin-top: 10px;
+        font-weight: lighter;
+        font-size: 15px;
+        
+    }
+
+}
+
+.price {
+    width: 20%;
+    padding: 0 20px 10px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+
+    span {
+        font-weight: bold;
+        font-size: 15px;  
+        transition: ease-in-out 0.5s;
+    }
+}
+
+
+.dishSelected { 
+    height: 80px;
+    display: flex;
+    width: 0;
     background: $tertiary-color;
     height: 100%;
     align-items: center;
@@ -489,54 +629,36 @@ footer {
 
     .fas {
         color: #fff;
-        font-size: 22px;
+        font-size: 0;
         transition: ease-in-out 0.8s;
         
     }
 }
 
-.itemMenu_plat {
-    font-weight: bold;
-    font-size: 18px;
 
-    p, span {
-        
-        display: flex;
-        align-content: space-between;
+.menuContent {
+    .btn {
+        padding: 15px 45px;
+        margin-top: 40px;
     }
 }
 
-.truc {
-    display: flex;
-    align-content: space-between;
-    overflow: hidden;
-
-}
-
-
-
-.itemMenu__price {
-    font-weight: bold;
-    margin-left: 150px;
-    font-size: 18px;  
-    transition: ease-in-out 0.5s;
-}
 
 /************** ACCORDEON **************/
 
-#menuContainer{
+#menuContainer {
     height: auto;
     margin: 0 auto;
     margin-top: 3%;
   }
 
-  .accordion label{
+  .accordion label {
     display:block; 
     padding: 10px;
     cursor: pointer;
   }
   
-  .accordion p{
+  .accordion p {
     padding: 10px;    
     line-height: 1.7em;
     visibility: hidden;
@@ -546,42 +668,44 @@ footer {
     margin-top: 0px;
   }
   
-  #tm:checked ~ .hiddentext{
+  #tm:checked ~ .hiddentext {
     display: block;
     visibility: visible;
     opacity: 1;
   }
   
-  input#tm{
+  input#tm {
     display: none;
     position: relative;
   }
   
-  #tn:checked ~ .hiddentext{
+  #tn:checked ~ .hiddentext {
     display: block;
     visibility: visible;
     opacity: 1;
   }
   
-  input#tn{
+  input#tn {
     display: none;
     position: relative;
   }
   
-  #to:checked ~ .hiddentext{
+  #to:checked ~ .hiddentext {
     display: block;
     visibility: visible;
     opacity: 1;
-    #container{
-  width: 400px;
-  height: auto;
-  margin: 0 auto;
-  margin-top: 3%;
-  border-top: 1px solid #bdbdbd;
-  border-left: 1px solid #bdbdbd;
-  border-right: 1px solid #bdbdbd;
+
+        #container {
+            width: 400px;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 3%;
+            border-top: 1px solid #bdbdbd;
+            border-left: 1px solid #bdbdbd;
+            border-right: 1px solid #bdbdbd;
 }
-.accordion label{
+
+.accordion label {
   display:block;
   background-color: #eeeeee;
   padding: 10px;
@@ -592,7 +716,7 @@ footer {
   border-top: 1px solid #ffffff;
 }
 
-.accordion p{
+.accordion p {
   color: #424242;
   padding: 10px;
   font-size: 0.8em;
@@ -606,41 +730,41 @@ footer {
   margin-top: 0px;
 }
 
-#tm:checked ~ .hiddentext{
+#tm:checked ~ .hiddentext {
   display: block;
   visibility: visible;
   opacity: 1;
 }
 
-input#tm{
+input#tm {
   display: none;
   position: relative;
 }
 
-#tn:checked ~ .hiddentext{
+#tn:checked ~ .hiddentext {
   display: block;
   visibility: visible;
   opacity: 1;
 }
 
-input#tn{
+input#tn {
   display: none;
   position: relative;
 }
 
-#to:checked ~ .hiddentext{
+#to:checked ~ .hiddentext {
   display: block;
   visibility: visible;
   opacity: 1;
 }
 
-input#to{
+input#to {
   display: none;
   position: relative;
 }
   }
   
-  input#to{
+  input#to {
     display: none;
     position: relative;
   }

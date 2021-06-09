@@ -11,6 +11,8 @@
     <title>Oh My Food</title>
 </head>
 <body>
+    <!-- <div class="loader"><div class="chargement"></div></div> -->
+    
     <header>
         <div class="header"><h1>ohmyfood</h1></div>
     </header>
@@ -25,7 +27,8 @@
             <h2>Réservez le menu qui vous convient</h2>
             <p>Découvrez des restaurants d'exception, selectionnées par nos soins</p>
 
-            <button class="explorebtn">Explorer nos restaurants</button>
+            <a  class="btn" href="#restaurants">Explorer nos restaurants</a>
+                
         </section>
 
         <section class="howtoContainer">
@@ -33,31 +36,37 @@
 
             <div class="howto">
                 <div class="howtoCard">
+                    <a href="#restaurants">
                     <div class="howtoNumber">1</div>
                     <div class="howtoText">
                         <i class="fas fa-mobile-alt"></i><span>Choisissez un restaurant</span> 
                     </div>  
+                    </a>
                 </div>
 
                 <div class="howtoCard">
+                    <a href="#restaurants">
                     <div class="howtoNumber">2</div>
                     <div class="howtoText">
                         <i class="fas fa-list"></i><span>Composez votre menu</span> 
                     </div>  
+                    </a>
                 </div>
 
                 <div class="howtoCard">
+                    <a href="#restaurants">
                     <div class="howtoNumber">3</div>
                     <div class="howtoText">
                         <i class="fas fa-store"></i><span>Dégustez au restaurant</span> 
                     </div>  
+                    </a>
                 </div>
 
             </div>
 
         </section>
 
-        <section class="restaurant">
+        <section id="restaurants" class="restaurant">
             <h2>Restaurants</h2>
 
             <div class="restaurantContainer">
@@ -70,17 +79,17 @@
                     <a href="menus/palettedugout.html" class="restau__text">
                         <span>La palette du goût</span> 
                         <p>Ménilmontant</p>
-                    </a>    
+                    </a>        
                     <button class="restau__text__icon"><i class="far fa-heart"></i> <i class="fas fa-heart"></i></button> 
                 </div>
 
 
                 <div class="restau">
-                    <a href="#" class="restau__img">
+                    <a href="menus/lanoteenchantee.html" class="restau__img">
                         <img src="../NarjisseKabbara_3_26052021/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg" alt="">
                         <div class="newtag">Nouveau</div>
                     </a>
-                    <a href="#" class="restau__text">
+                    <a href="menus/lanoteenchantee.html" class="restau__text">
                         <span>La note enchantée</span> 
                         <p>Charonne</p>
                     </a>    
@@ -88,11 +97,11 @@
                 </div>
 
                 <div class="restau">
-                    <a href="#" class="restau__img">
+                    <a href="menus/alafrancaise.html" class="restau__img">
                         <img src="../NarjisseKabbara_3_26052021/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg" alt="">
                         <!-- <div class="newtag">Nouveau</div> -->
                     </a>
-                    <a href="#" class="restau__text">
+                    <a href="menus/alafrancaise.html" class="restau__text">
                         <span>À la française</span> 
                         <p>Cité Rouge</p>
                     </a>    
@@ -100,11 +109,11 @@
                 </div>
 
                 <div class="restau">
-                    <a href="#" class="restau__img">
+                    <a href="menus/ledelicedessens.html" class="restau__img">
                         <img src="../NarjisseKabbara_3_26052021/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="">
                         <!-- <div class="newtag">Nouveau</div> -->
                     </a>
-                    <a href="#" class="restau__text">
+                    <a href="menus/ledelicedessens.html" class="restau__text">
                         <span>Le délice des sens</span> 
                         <p>Folie-Méricourt</p>
                     </a>    

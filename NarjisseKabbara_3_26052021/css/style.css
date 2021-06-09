@@ -1,4 +1,26 @@
 /***************************** GLOBAL **************************************************/
+@keyframes slidein {
+  from {
+    transform: translate3d(0, 20px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border-top: 10px solid #9356DC;
+    border-bottom: 10px solid #FF79DA;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-top: 10px solid #FF79DA;
+    border-bottom: 10px solid #9356DC;
+  }
+}
 .fas, .far {
   color: #7e7e7e;
 }
@@ -54,6 +76,30 @@ a {
   text-decoration: none;
 }
 
+.loader {
+  height: 100%;
+  width: 100%;
+  background-color: #f5edff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.chargement {
+  border-top: 10px solid #9356DC;
+  border-bottom: 10px solid #FF79DA;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+
 /***************************** HEADER **************************************************/
 header {
   position: relative;
@@ -98,14 +144,29 @@ header {
   margin: 0 20px 20px 20px;
 }
 
-.explorebtn {
+.btnContainer {
+  text-align: center;
+}
+
+.btn {
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
   border: none;
-  border-radius: 20px;
+  border-radius: 50px;
   padding: 15px;
   color: #fff;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  font-weight: normal;
+  margin: 20px auto 10px auto;
+  box-shadow: 5px 5px 5px 2px #e6e6e6;
+  display: inline-block;
+  transition: all ease 0.2s;
+}
+.btn a {
+  color: #fff;
+}
+.btn:hover, .btn:focus, .btn:active {
+  box-shadow: 0 0 10px 3px #a8a8a8;
+  background: linear-gradient(to bottom right, #ff7edb, #ae80e5);
+  transition: all ease 0.2s;
 }
 
 /***************************** HOW TO **************************************************/
@@ -126,7 +187,10 @@ header {
   box-shadow: 5px 10px 20px 1px #b5b5b5;
   transition: all 0.2s;
 }
-.howtoCard:last-child, .howtoCard:hover, .howtoCard:active {
+.howtoCard a {
+  color: #000;
+}
+.howtoCard:hover, .howtoCard:active, .howtoCard:focus {
   transition: all ease 0.2s;
   background: #f5edff;
 }
@@ -187,33 +251,32 @@ header {
   margin-left: 20px;
 }
 
-.restau__text__icon {
+.restau__text__icon, .menuLike {
   position: absolute;
   bottom: 25px;
   right: 20px;
   font-size: 25px;
   background: none;
   border: none;
+  line-height: 1;
 }
-.restau__text__icon .far {
+.restau__text__icon .far, .menuLike .far {
   color: #000;
-  transition: all 2s ease-out;
 }
-.restau__text__icon .fas {
-  display: none;
+.restau__text__icon .fas, .menuLike .fas {
+  transform: scale(0);
   background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: all 2s ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform ease-out 0.2s;
 }
-.restau__text__icon:hover, .restau__text__icon:focus, .restau__text__icon:active {
-  transition: all 2s ease-out;
-}
-.restau__text__icon:hover .far, .restau__text__icon:focus .far, .restau__text__icon:active .far {
-  display: none;
-}
-.restau__text__icon:hover .fas, .restau__text__icon:focus .fas, .restau__text__icon:active .fas {
-  display: inline-block;
+.restau__text__icon:hover .fas, .restau__text__icon:focus .fas, .restau__text__icon:active .fas, .menuLike:hover .fas, .menuLike:focus .fas, .menuLike:active .fas {
+  transform: scale(1.1);
+  transition: transform 0.5s cubic-bezier(0.12, 0.62, 0.08, 1.44);
 }
 
 .newtag {
@@ -272,10 +335,12 @@ footer {
   left: 25px;
 }
 .header:hover, .header:focus, .header:active {
-  color: #7e7e7e;
+  text-shadow: 1px 1px 2px #b5b5b5;
+  transition: ease-in-out 0.2s;
 }
 .header:hover .fas, .header:focus .fas, .header:active .fas {
-  color: #7e7e7e;
+  font-size: 35px;
+  transition: ease-in-out 0.2s;
 }
 
 .hero img {
@@ -286,7 +351,7 @@ footer {
 
 .menu {
   position: relative;
-  padding: 50px;
+  padding: 40px 35px 20px 20px;
   font-weight: lighter;
   text-align: center;
   background: #f6f6f6;
@@ -300,103 +365,111 @@ footer {
   justify-content: space-between;
 }
 .menuTitle h2 {
+  font-size: 28px;
   font-family: "Shrikhand", cursive;
   margin: 0;
-}
-
-.menuLike {
-  font-size: 25px;
-  background: none;
-  border: none;
-}
-.menuLike .far {
-  color: #000;
-  transition: all 2s ease-out;
-}
-.menuLike .fas {
-  display: none;
-  background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 2s ease-out;
-}
-.menuLike:hover, .menuLike:focus, .menuLike:active {
-  transition: all 2s ease-out;
-}
-.menuLike:hover .far, .menuLike:focus .far, .menuLike:active .far {
-  display: none;
-}
-.menuLike:hover .fas, .menuLike:focus .fas, .menuLike:active .fas {
-  display: inline-block;
 }
 
 /*************************** MENU CONTENT ****************************************/
 .menuContent {
   background: #f6f6f6;
+  padding: 0 20px 45px 20px;
 }
-.menuContent h2 {
+.menuContent h3 {
   position: relative;
   text-transform: uppercase;
-  font-weight: normal;
   font-weight: lighter;
+  padding-top: 30px;
 }
-.menuContent h2:after {
+.menuContent h3:after {
   content: "";
   display: inline-block;
   position: absolute;
   bottom: -5px;
   left: 0;
-  width: 15%;
+  width: 12%;
   height: 2px;
   background: #99E2D0;
   transition: ease-in-out 0.5s;
 }
-.menuContent h2:hover:after, .menuContent h2:focus:after, .menuContent h2:active:after {
-  width: 30%;
-  transition: ease-in-out 0.5s;
-}
 
-.itemMenu {
+/******* menu card **********/
+.menuCardContainer {
+  animation: slidein 1.5s backwards 0.3s;
   position: relative;
-  margin: 20px;
   height: 80px;
+  margin: 15px 0;
   background: #f6f6f6;
   border-radius: 20px;
-  align-items: center;
   cursor: pointer;
   box-shadow: 5px 10px 20px 1px #b5b5b5;
   transition: ease-in-out 0.4s;
   overflow: hidden;
 }
-.itemMenu:hover, .itemMenu:focus, .itemMenu:active {
-  transition: all ease 0.2s;
+.menuCardContainer:nth-child(2) {
+  animation-delay: 0.5s;
 }
-.itemMenu:hover .itemMenu__price, .itemMenu:focus .itemMenu__price, .itemMenu:active .itemMenu__price {
+.menuCardContainer:nth-child(3) {
+  animation-delay: 0.9s;
+}
+.menuCardContainer:hover .dish, .menuCardContainer:active .dish, .menuCardContainer:focus .dish {
   transition: ease-in-out 0.5s;
 }
-.itemMenu:hover .itemChoice, .itemMenu:focus .itemChoice, .itemMenu:active .itemChoice {
-  right: 0;
+.menuCardContainer:hover .price, .menuCardContainer:active .price, .menuCardContainer:focus .price {
   transition: ease-in-out 0.5s;
 }
-.itemMenu:hover .itemChoice .fas, .itemMenu:focus .itemChoice .fas, .itemMenu:active .itemChoice .fas {
+.menuCardContainer:hover .dishSelected, .menuCardContainer:active .dishSelected, .menuCardContainer:focus .dishSelected {
+  width: 25%;
+  transition: ease-in-out 0.5s;
+}
+.menuCardContainer:hover .dishSelected .fas, .menuCardContainer:active .dishSelected .fas, .menuCardContainer:focus .dishSelected .fas {
+  font-size: 22px;
   transform: rotate(360deg);
-  transition: ease-in-out 0.8s;
-}
-.itemMenu__text {
-  padding: 15px;
-}
-.itemMenu__text p {
-  font-weight: lighter;
-  margin-top: 10px;
-  font-size: 13px;
-  margin: 0;
+  transition: ease-in-out 0.6s;
 }
 
-.itemChoice {
-  width: 60px;
-  position: absolute;
-  top: 0;
-  right: -60px;
+.menuCard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.dish {
+  width: 80%;
+  padding: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 18px;
+}
+.dish span, .dish p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.dish p {
+  margin-top: 10px;
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.price {
+  width: 20%;
+  padding: 0 20px 10px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+}
+.price span {
+  font-weight: bold;
+  font-size: 15px;
+  transition: ease-in-out 0.5s;
+}
+
+.dishSelected {
+  height: 80px;
+  display: flex;
+  width: 0;
   background: #99E2D0;
   height: 100%;
   align-items: center;
@@ -405,32 +478,15 @@ footer {
   border-radius: 0 20px 20px 0;
   transition: ease-in-out 0.5s;
 }
-.itemChoice .fas {
+.dishSelected .fas {
   color: #fff;
-  font-size: 22px;
+  font-size: 0;
   transition: ease-in-out 0.8s;
 }
 
-.itemMenu_plat {
-  font-weight: bold;
-  font-size: 18px;
-}
-.itemMenu_plat p, .itemMenu_plat span {
-  display: flex;
-  align-content: space-between;
-}
-
-.truc {
-  display: flex;
-  align-content: space-between;
-  overflow: hidden;
-}
-
-.itemMenu__price {
-  font-weight: bold;
-  margin-left: 150px;
-  font-size: 18px;
-  transition: ease-in-out 0.5s;
+.menuContent .btn {
+  padding: 15px 45px;
+  margin-top: 40px;
 }
 
 /************** ACCORDEON **************/
