@@ -37,13 +37,25 @@
 @keyframes loader {
   0% {
     background-color: #f5edff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
   }
-  50% {
+  75% {
     background-color: #f5edff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
   }
   100% {
     background-color: rgba(245, 237, 255, 0);
-    z-index: -1;
+    position: absolute;
   }
 }
 .fas, .far {
@@ -102,18 +114,14 @@ a {
   text-decoration: none;
 }
 
+/*********** LOADER ***********/
 .loader {
-  height: 100%;
+  z-index: 2;
+  height: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
   animation: loader 3s ease;
 }
 
