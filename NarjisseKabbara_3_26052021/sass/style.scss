@@ -146,7 +146,8 @@ a {
 /*********** LOADER ***********/
 
 .loader {
-    z-index: 2;!important
+    position: relative;
+    z-index: 1000;
     height: 0;
     width: 100%;  
     display: flex;
