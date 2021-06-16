@@ -155,7 +155,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #4b4b4b;
+  color: #353535;
+}
+.localisationContainer .fas {
+  color: #353535;
 }
 
 #localisation {

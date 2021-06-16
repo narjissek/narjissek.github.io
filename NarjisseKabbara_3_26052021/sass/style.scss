@@ -9,7 +9,7 @@ $secondary-color: #FF79DA;
 $secondary-color-lighten: lighten($secondary-color, 1%);
 $tertiary-color: #99E2D0;
 
-$localisation-color: #4b4b4b; 
+$localisation-color: #353535; 
 $footer : #353535;
 $icon : #7e7e7e;
 
@@ -188,6 +188,10 @@ header {
     justify-content: center;
     align-items: center;
     color: $localisation-color;   
+
+    .fas {
+        color: $localisation-color;   
+    }
 }
 
 #localisation {
