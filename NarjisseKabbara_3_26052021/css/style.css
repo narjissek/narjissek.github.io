@@ -1,4 +1,6 @@
 /***************************** GLOBAL **************************************************/
+/***************** VARIABLES ********************/
+/***************** KEYFRAMES ********************/
 @keyframes slidein {
   from {
     transform: translate3d(0, 20px, 0);
@@ -9,6 +11,17 @@
     opacity: 1;
   }
 }
+@keyframes overflow {
+  0% {
+    overflow: hidden;
+  }
+  50% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: visible;
+  }
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -16,9 +29,20 @@
     border-bottom: 10px solid #FF79DA;
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
     border-top: 10px solid #FF79DA;
     border-bottom: 10px solid #9356DC;
+  }
+}
+@keyframes loader {
+  0% {
+    background-color: #f5edff;
+  }
+  50% {
+    background-color: #f5edff;
+  }
+  100% {
+    background-color: rgba(245, 237, 255, 0);
   }
 }
 .fas, .far {
@@ -34,6 +58,7 @@ body {
   width: 100%;
   margin: 0;
   font-family: "Roboto", sans-serif;
+  animation: overflow linear 2s;
 }
 
 h1 {
@@ -79,7 +104,6 @@ a {
 .loader {
   height: 100%;
   width: 100%;
-  background-color: #f5edff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,15 +113,14 @@ a {
   bottom: 0;
   right: 0;
   z-index: 2;
+  animation: loader 3s ease;
 }
 
 .chargement {
-  border-top: 10px solid #9356DC;
-  border-bottom: 10px solid #FF79DA;
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  animation: spin 2s linear infinite;
+  animation: spin 1s linear 2;
 }
 
 /***************************** HEADER **************************************************/
@@ -387,7 +410,7 @@ footer {
   position: absolute;
   bottom: -5px;
   left: 0;
-  width: 12%;
+  width: 40px;
   height: 2px;
   background: #99E2D0;
   transition: ease-in-out 0.5s;
@@ -490,25 +513,88 @@ footer {
 }
 
 /************** ACCORDEON **************/
+/***********
 #menuContainer {
-  height: auto;
-  margin: 0 auto;
-  margin-top: 3%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 3%;
+  }
+
+  .accordion label {
+    display:block; 
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .accordion p {
+    padding: 10px;    
+    line-height: 1.7em;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    text-align: left;
+    margin-top: 0px;
+  }
+
+  #tm:checked ~ .hiddentext {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  input#tm {
+    display: none;
+    position: relative;
+  }
+
+  #tn:checked ~ .hiddentext {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  input#tn {
+    display: none;
+    position: relative;
+  }
+
+  #to:checked ~ .hiddentext {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+
+        #container {
+            width: 400px;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 3%;
+            border-top: 1px solid #bdbdbd;
+            border-left: 1px solid #bdbdbd;
+            border-right: 1px solid #bdbdbd;
 }
 
 .accordion label {
-  display: block;
+  display:block;
+  background-color: #eeeeee;
   padding: 10px;
+  color: #424242;
+  text-shadow: 0 0 2px rgba(255,255,255,0.6);
   cursor: pointer;
+  border-bottom: 1px solid #bdbdbd;
+  border-top: 1px solid #ffffff;
 }
 
 .accordion p {
+  color: #424242;
   padding: 10px;
+  font-size: 0.8em;
   line-height: 1.7em;
+  border-bottom: 1px solid #bdbdbd;
   visibility: hidden;
   opacity: 0;
   display: none;
   text-align: left;
+  background-color: #fff;
   margin-top: 0px;
 }
 
@@ -539,71 +625,63 @@ input#tn {
   visibility: visible;
   opacity: 1;
 }
-#to:checked ~ .hiddentext #container {
-  width: 400px;
-  height: auto;
-  margin: 0 auto;
-  margin-top: 3%;
-  border-top: 1px solid #bdbdbd;
-  border-left: 1px solid #bdbdbd;
-  border-right: 1px solid #bdbdbd;
-}
-#to:checked ~ .hiddentext .accordion label {
-  display: block;
-  background-color: #eeeeee;
-  padding: 10px;
-  color: #424242;
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  border-bottom: 1px solid #bdbdbd;
-  border-top: 1px solid #ffffff;
-}
-#to:checked ~ .hiddentext .accordion p {
-  color: #424242;
-  padding: 10px;
-  font-size: 0.8em;
-  line-height: 1.7em;
-  border-bottom: 1px solid #bdbdbd;
-  visibility: hidden;
-  opacity: 0;
-  display: none;
-  text-align: left;
-  background-color: #fff;
-  margin-top: 0px;
-}
-#to:checked ~ .hiddentext #tm:checked ~ .hiddentext {
-  display: block;
-  visibility: visible;
-  opacity: 1;
-}
-#to:checked ~ .hiddentext input#tm {
-  display: none;
-  position: relative;
-}
-#to:checked ~ .hiddentext #tn:checked ~ .hiddentext {
-  display: block;
-  visibility: visible;
-  opacity: 1;
-}
-#to:checked ~ .hiddentext input#tn {
-  display: none;
-  position: relative;
-}
-#to:checked ~ .hiddentext #to:checked ~ .hiddentext {
-  display: block;
-  visibility: visible;
-  opacity: 1;
-}
-#to:checked ~ .hiddentext input#to {
-  display: none;
-  position: relative;
-}
 
 input#to {
   display: none;
   position: relative;
 }
+  }
 
-/*************************/
+  input#to {
+    display: none;
+    position: relative;
+  }
+
+**************/
+/********************************** IPAD AND DESKTOP ***********************************************/
+@media screen and (min-width: 765px) {
+  .menu {
+    padding: 40px 20% 20px 20%;
+  }
+
+  .menuLike {
+    right: 25%;
+  }
+
+  .menuContent, .restaurant, .howtoContainer {
+    padding: 20px 20%;
+  }
+
+  .howtoCard {
+    width: 100%;
+  }
+
+  .howtoNumber {
+    left: 20%;
+  }
+
+  .restaurantContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin: 0;
+  }
+
+  .restau {
+    width: 100%;
+  }
+
+  .menuFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .menuFooter ul {
+    display: flex;
+  }
+  .menuFooter li {
+    padding: 0 20px;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
