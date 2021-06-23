@@ -145,17 +145,6 @@ a {
 
 /*********** LOADER ***********/
 
-.loader {
-    position: relative;
-    z-index: 9999;
-    height: 0; 
-    width: 100%;  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: loader 3s ease;
-}
-
 .chargement {
     border-radius: 50%;
     width: 100px;
