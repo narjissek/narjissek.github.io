@@ -34,18 +34,18 @@ $font-title: 'Shrikhand', cursive;
     }
   }
 
-  @keyframes overflow {
-    0%{
-      overflow: hidden;
-    }
+//   @keyframes overflow {
+//     0%{
+//       overflow: hidden;
+//     }
     
-    50% {
-        overflow: hidden;
-    }
-    100% {
-       overflow: visible;
-    }
-  }
+//     99% {
+//         overflow: hidden;
+//     }
+//     100% {
+//        overflow: visible;
+//     }
+//   }
 
   @keyframes spin {
     0% {
@@ -100,7 +100,7 @@ body {
     width: 100%;
     margin: 0;
     font-family: $font;
-    animation: overflow linear 2s;
+    // animation: overflow linear 2s;
  
 }
 
@@ -144,6 +144,19 @@ a {
 }
 
 /*********** LOADER ***********/
+
+
+.loader {
+    position: relative;
+    z-index: 9999;
+    height: 0; 
+    width: 100%;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: loader 3s ease;
+}
+
 
 .chargement {
     border-radius: 50%;

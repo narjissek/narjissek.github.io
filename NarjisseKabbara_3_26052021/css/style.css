@@ -11,17 +11,6 @@
     opacity: 1;
   }
 }
-@keyframes overflow {
-  0% {
-    overflow: hidden;
-  }
-  50% {
-    overflow: hidden;
-  }
-  100% {
-    overflow: visible;
-  }
-}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -71,7 +60,6 @@ body {
   width: 100%;
   margin: 0;
   font-family: "Roboto", sans-serif;
-  animation: overflow linear 2s;
 }
 
 h1 {
@@ -116,7 +104,8 @@ a {
 
 /*********** LOADER ***********/
 .loader {
-  z-index: 2;
+  position: relative;
+  z-index: 9999;
   height: 0;
   width: 100%;
   display: flex;
