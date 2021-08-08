@@ -92,8 +92,13 @@ a:hover, a:focus, a:active {
 
 .headerContainer h1 {
     font-family: var(--fancy-font);
+    font-size: 2.5em;
 }
 
+.presentation {
+    font-family: var(--fancy-font);
+    font-size: 20px;
+}
 .section {
     height: 100%;
     width: 100%;
